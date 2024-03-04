@@ -1,3 +1,25 @@
+class PageObject:
+    def __init__(self, driver):
+        self.driver = driver
+
+    def click(self, locator):
+        self.driver.find_element(*locator).click()
+
+    def _input(self, locator, text):
+        input_field = self.driver.find_element(*locator)
+        input_field.clear()
+        input_field.send_keys(text)
+
+    def enter(self):
+        self.driver.find_element(*locator).send_keys(Keys.RETURN)
+
+    def random(self, elements):
+        return random.randint(0, len(elements) - 1)
+
+
+
+
+
 import os
 import pytest
 from selenium import webdriver
